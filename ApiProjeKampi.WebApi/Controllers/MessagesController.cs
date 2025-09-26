@@ -26,14 +26,24 @@ namespace ApiProjeKampi.WebApi.Controllers
             var value = _context.Messages.ToList();
             return Ok(_mapper.Map<List<ResultMessageDto>>(value));
         }
+
+        [HttpPost]
         [HttpPost]
         public IActionResult CreateMessage(CreateMessageDto createMessageDto)
         {
-           var value = _mapper.Map<Message>(createMessageDto);
-            _context.Messages.Add(value);
-            _context.SaveChanges();
-            return Ok("Mesaj ekleme işlemi başarılı");
+            try
+            {
+                var value = _mapper.Map<Message>(createMessageDto);
+                _context.Messages.Add(value);
+                _context.SaveChanges();
+                return Ok("Mesaj ekleme işlemi başarılı");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Hata: {ex.Message}");
+            }
         }
+
 
         [HttpDelete]
         public IActionResult DeleteMessage(int id)

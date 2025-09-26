@@ -14,9 +14,9 @@ namespace ApiProjeKampi.WebApi.Mapping
             CreateMap<Feature, GetByIdFeatureDto>().ReverseMap(); 
 
             CreateMap<Message, ResultMessageDto>().ReverseMap(); 
-            CreateMap<Feature, CreateMessageDto>().ReverseMap(); 
-            CreateMap<Feature, UpdateMessageDto>().ReverseMap(); 
-            CreateMap<Feature, GetByIdMessageDto>().ReverseMap(); 
+            CreateMap<Message, CreateMessageDto>().ReverseMap(); 
+            CreateMap<Message, UpdateMessageDto>().ReverseMap(); 
+            CreateMap<Message, GetByIdMessageDto>().ReverseMap(); 
         }
     }
 }
